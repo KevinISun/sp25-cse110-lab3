@@ -74,7 +74,7 @@ a:hover {
   color: rgba(230, 126, 34, 0.8); /* Slightly transparent orange */
 }
 
-/* Pseudo-class Selector (a:active)  */
+/* Pseudo-class Selector (a:active) */
 a:active {
   /* Color using wider-gamut color() */
   /* Note: Browser support for color() might be limited */
@@ -88,7 +88,7 @@ ul li:nth-child(odd) {
 }
 
 
-/* Element Selector (hr)  */
+/* Element Selector (hr) */
 hr {
   border: 0;
   height: 1px;
