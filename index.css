@@ -61,9 +61,24 @@ a:hover {
 }
 
 a:active {
+  /* Fallback color for older browsers/validators */
+  color: orange; /* Or a specific hex/rgb like #FF4500 */
+
   /* Color using wider-gamut color() - Example */
   /* Note: Browser support for color() might be limited */
   color: color(display-p3 0.9 0.3 0.1);
+}
+nav {
+  border-style: dashed;
+  border-color: var(--secondary-color);
+  border-width: 2px;
+
+  /* Fallback background color*/
+  background-color: #D6EAFC; /* A blue fallback */
+  /* Or a simpler fallback: background-color: #EAF4FC; */
+
+  /* Color mixing example */
+  background-color: color-mix(in srgb, var(--primary-color) 20%, white);
 }
 
 hr {
