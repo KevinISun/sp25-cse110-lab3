@@ -1,0 +1,238 @@
+/* index.css - Styles for Meeting Minutes */
+
+/* Import Google Font (Roboto) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* --- CSS Variables & Fallbacks --- */
+:root {
+  --primary-color: #3498db; /* Blue */
+  --secondary-color: #2ecc71; /* Green */
+  --text-color: #333;
+  --background-main: #f8f9fa;
+  --border-color: #ccc;
+  --container-width: 90vw; /* Relative unit: viewport width */
+  --base-font-size: 1rem; /* Relative unit: root em */
+}
+
+/* --- General Styles & Fonts --- */
+body {
+  /* Use CSS Variable with fallback */
+  font-family: 'Roboto', sans-serif; /* Use imported font */
+  color: var(--text-color, black); /* Fallback to black if variable not defined */
+  background-color: var(--background-main);
+  margin: 0; /* Remove default body margin */
+  padding: 0;
+  line-height: 1.6; /* Relative unit: unitless, relative to font size */
+}
+
+h1, h2, h3 {
+  /* Color using hex code */
+  color: #2c3e50; /* Dark Blue/Grey */
+  /* Margin using shorthand */
+  margin: 1.5em 0 0.5em 0; /* Relative unit: em */
+}
+
+h1 {
+  /* Absolute unit: points */
+  font-size: 32pt;
+  /* Text styling */
+  text-align: center;
+  text-decoration: underline;
+  /* Color using HSL */
+  color: hsl(210, 50%, 45%);
+}
+
+p {
+  /* Absolute unit: pixels */
+  margin-bottom: 15px;
+}
+
+a {
+  /* Color using name */
+  color: orange;
+  text-decoration: none; /* Remove default underline */
+}
+
+/* --- Pseudo-classes --- */
+a:hover {
+  text-decoration: underline;
+  /* Color using rgba */
+  color: rgba(230, 126, 34, 0.8); /* Slightly transparent orange */
+}
+
+a:active {
+  /* Color using wider-gamut color() - Example */
+  /* Note: Browser support for color() might be limited */
+  color: color(display-p3 0.9 0.3 0.1);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  /* Background color using rgb */
+  background-color: rgb(204, 204, 204);
+  margin: 2em 0;
+}
+
+/* --- Box Model --- */
+main, section, nav, footer, form {
+  /* Sizing */
+  max-width: 800px; /* Absolute unit: pixels */
+  min-width: 300px;
+  /* Margin using auto for centering */
+  margin-left: auto;
+  margin-right: auto;
+  /* Padding using longhand */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* Border using shorthand */
+  border: 1px solid var(--border-color);
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px; /* Add space between sections */
+  /* Background color */
+  background-color: #ffffff; /* White */
+}
+
+/* Example of border longhand */
+nav {
+  border-style: dashed;
+  border-color: var(--secondary-color);
+  border-width: 2px;
+  /* Color mixing example */
+  background-color: color-mix(in srgb, var(--primary-color) 20%, white);
+}
+
+/* --- Layouts --- */
+
+/* Flexbox for the unordered list */
+ul {
+  list-style: square;
+  /* Apply Flexbox */
+  display: flex;
+  /* Flexbox properties */
+  justify-content: space-around; /* Distribute items */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 10px; /* Space between flex items */
+  /* Padding using shorthand */
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+
+ul li {
+  background-color: #dee2e6;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+/* Grid for the form elements inside fieldset */
+fieldset {
+  /* Apply Grid */
+  display: grid;
+  /* Grid properties */
+  grid-template-columns: 100px 1fr; /* Label column and input column */
+  gap: 10px 15px; /* Row gap and column gap */
+  align-items: center; /* Align items vertically */
+  border: 1px dotted var(--primary-color); /* Different border style */
+  padding: 1.5em; /* Relative unit: em */
+}
+
+/* Target direct children label/input/etc. for grid placement */
+fieldset > label {
+  text-align: right;
+  font-weight: bold;
+}
+
+fieldset > button {
+  grid-column: 2 / 3; /* Make button span the second column */
+  justify-self: start; /* Align button to the start of its grid area */
+}
+
+/* --- Display Property --- */
+span {
+  /* Example of display: block */
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  font-style: italic;
+  color: #6c757d; /* Grey */
+}
+
+/* Hide the <br> tags if needed, or style specific elements */
+br {
+    /* Example of display: none - use cautiously */
+    /* display: none; */
+}
+
+/* --- Positioning --- */
+nav {
+  /* Example of position: sticky */
+  position: sticky;
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 10; /* Ensure it stays on top of other content */
+}
+
+footer {
+  /* Example of position: relative */
+  position: relative;
+  bottom: -10px; /* Slightly offset from its normal position */
+  text-align: center;
+  font-size: 0.8cm; /* Absolute unit: centimeters */
+  color: #6c757d;
+}
+
+/* --- Sizing --- */
+img, video {
+  /* Set max-width to prevent overflow and maintain aspect ratio */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Prevent extra space below */
+  margin: 10px auto; /* Center media */
+}
+
+textarea {
+  /* Example of width and height */
+  width: 95%; /* Relative unit: percentage */
+  height: 100px;
+}
+
+/* --- Responsiveness --- */
+
+/* Media Query for smaller screens (e.g., phones) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px; /* Adjust base font size */
+  }
+
+  h1 {
+    font-size: 24pt; /* Smaller heading */
+  }
+
+  /* Adjust grid layout for form on small screens */
+  fieldset {
+    grid-template-columns: 1fr; /* Stack label and input */
+  }
+
+  fieldset > label {
+    text-align: left; /* Align labels to the left */
+  }
+
+  fieldset > button {
+    grid-column: 1 / 2; /* Reset column span */
+    justify-self: stretch; /* Make button full width */
+  }
+
+  /* Adjust flexbox layout */
+  ul {
+    flex-direction: column; /* Stack list items vertically */
+    align-items: stretch; /* Make items full width */
+  }
+
+  main, section, nav, footer, form {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 95%; /* Adjust container width */
+  }
+}
