@@ -66,20 +66,9 @@ a:active {
 
   /* Color using wider-gamut color() - Example */
   /* Note: Browser support for color() might be limited */
-  color: color(display-p3 0.9 0.3 0.1);
+  color: color(colorspace 0.9 0.3 0.1);
 }
-nav {
-  border-style: dashed;
-  border-color: var(--secondary-color);
-  border-width: 2px;
 
-  /* Fallback background color*/
-  background-color: #D6EAFC; /* A blue fallback */
-  /* Or a simpler fallback: background-color: #EAF4FC; */
-
-  /* Color mixing example */
-  background-color: color-mix(in srgb, var(--primary-color) 20%, white);
-}
 
 hr {
   border: 0;
@@ -110,13 +99,19 @@ main, section, nav, footer, form {
   background-color: #ffffff; /* White */
 }
 
-/* Example of border longhand */
+/* border longhand */
 nav {
   border-style: dashed;
   border-color: var(--secondary-color);
   border-width: 2px;
-  /* Color mixing example */
-  background-color: color-mix(in srgb, var(--primary-color) 20%, white);
+
+  /* Fallback background color*/
+  background-color: #D6EAFC; /* A blue fallback */
+  /* Or a simpler fallback: background-color: #EAF4FC; */
+
+  /* Color mixing */
+  
+  background-color: color-mix(in srgb, var(--secondary-color) 50%, #ffffff 50%);
 }
 
 /* --- Layouts --- */
