@@ -15,6 +15,14 @@
 }
 
 /* --- General Styles & Fonts --- */
+
+/* Universal Selector (*) */
+/* Apply box-sizing to all elements for more predictable layouts */
+* {
+  box-sizing: border-box;
+}
+
+/* Element Selector (body) */
 body {
   /* Use CSS Variable with fallback */
   font-family: 'Roboto', sans-serif; /* Use imported font */
@@ -25,6 +33,7 @@ body {
   line-height: 1.6; /* Relative unit: unitless, relative to font size */
 }
 
+/* Selector List (h1, h2, h3)*/
 h1, h2, h3 {
   /* Color using hex code */
   color: #2c3e50; /* Dark Blue/Grey */
@@ -32,6 +41,7 @@ h1, h2, h3 {
   margin: 1.5em 0 0.5em 0; /* Relative unit: em */
 }
 
+/* Element Selector (h1)*/
 h1 {
   /* Absolute unit: points */
   font-size: 32pt;
@@ -42,11 +52,13 @@ h1 {
   color: hsl(210, 50%, 45%);
 }
 
+/* Element Selector (p)  */
 p {
   /* Absolute unit: pixels */
   margin-bottom: 15px;
 }
 
+/* Element Selector (a)  */
 a {
   /* Color using name */
   color: orange;
@@ -54,18 +66,29 @@ a {
 }
 
 /* --- Pseudo-classes --- */
+
+/* Pseudo-class Selector (a:hover)  */
 a:hover {
   text-decoration: underline;
   /* Color using rgba */
   color: rgba(230, 126, 34, 0.8); /* Slightly transparent orange */
 }
 
+/* Pseudo-class Selector (a:active)  */
 a:active {
-  /* Color using wider-gamut color() - Example */
+  /* Color using wider-gamut color() */
   /* Note: Browser support for color() might be limited */
   color: color(display-p3 0.9 0.3 0.1);
 }
 
+/* Pseudo-class Selector (:nth-child) */
+/* Style every odd list item differently */
+ul li:nth-child(odd) {
+    background-color: #ced4da; /* Slightly darker grey */
+}
+
+
+/* Element Selector (hr)  */
 hr {
   border: 0;
   height: 1px;
@@ -75,6 +98,7 @@ hr {
 }
 
 /* --- Box Model --- */
+/* Selector List (main, section, nav, footer, form)  */
 main, section, nav, footer, form {
   /* Sizing */
   max-width: 800px; /* Absolute unit: pixels */
@@ -96,6 +120,7 @@ main, section, nav, footer, form {
 }
 
 /* Example of border longhand */
+/* Element Selector (nav)  */
 nav {
   border-style: dashed;
   border-color: var(--secondary-color);
@@ -107,6 +132,7 @@ nav {
 /* --- Layouts --- */
 
 /* Flexbox for the unordered list */
+/* Element Selector (ul)  */
 ul {
   list-style: square;
   /* Apply Flexbox */
@@ -121,6 +147,8 @@ ul {
   border-radius: 4px;
 }
 
+/* Descendant Combinator (ul li) */
+/* Styles list items *anywhere* inside a ul */
 ul li {
   background-color: #dee2e6;
   padding: 5px 10px;
@@ -128,6 +156,7 @@ ul li {
 }
 
 /* Grid for the form elements inside fieldset */
+/* Element Selector (fieldset)  */
 fieldset {
   /* Apply Grid */
   display: grid;
@@ -139,18 +168,21 @@ fieldset {
   padding: 1.5em; /* Relative unit: em */
 }
 
-/* Target direct children label/input/etc. for grid placement */
+/* Child Combinator (fieldset > label)  */
+/* Target direct children label for grid placement */
 fieldset > label {
   text-align: right;
   font-weight: bold;
 }
 
+/* Child Combinator (fieldset > button)  */
 fieldset > button {
   grid-column: 2 / 3; /* Make button span the second column */
   justify-self: start; /* Align button to the start of its grid area */
 }
 
 /* --- Display Property --- */
+/* Element Selector (span)  */
 span {
   /* Example of display: block */
   display: block;
@@ -161,12 +193,14 @@ span {
 }
 
 /* Hide the <br> tags if needed, or style specific elements */
+/* Element Selector (br)  */
 br {
     /* Example of display: none - use cautiously */
     /* display: none; */
 }
 
 /* --- Positioning --- */
+/* Element Selector (nav)  */
 nav {
   /* Example of position: sticky */
   position: sticky;
@@ -174,6 +208,7 @@ nav {
   z-index: 10; /* Ensure it stays on top of other content */
 }
 
+/* Element Selector (footer)  */
 footer {
   /* Example of position: relative */
   position: relative;
@@ -184,6 +219,7 @@ footer {
 }
 
 /* --- Sizing --- */
+/* Selector List (img, video)  */
 img, video {
   /* Set max-width to prevent overflow and maintain aspect ratio */
   max-width: 100%;
@@ -192,11 +228,190 @@ img, video {
   margin: 10px auto; /* Center media */
 }
 
+/* Element Selector (textarea)  */
 textarea {
   /* Example of width and height */
   width: 95%; /* Relative unit: percentage */
   height: 100px;
 }
+
+/* --- Additional Required Selectors --- */
+
+/* Class Selector (.class) */
+.important-note {
+  background-color: #fff3cd; /* Light yellow */
+  border-left: 5px solid #ffeeba; /* Yellow border */
+  padding: 10px;
+  font-style: italic;
+}
+
+/* ID Selector (#id) */
+#meeting-summary {
+  border: 2px dashed var(--primary-color);
+  background-color: #e7f5ff; /* Light blue */
+}
+
+/* Attribute Selector ([attribute=value]) */
+/* Style links that open in a new tab */
+a[target="_blank"] {
+  /* Add a small icon after the link text */
+  padding-right: 18px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>') no-repeat right center;
+  background-size: 12px 12px;
+}
+
+/* Attribute Selector ([attribute]) */
+/* Style all elements that have a 'data-tooltip' attribute */
+[data-tooltip] {
+    position: relative; /* Needed for pseudo-element positioning */
+    cursor: help;
+}
+/* Add a simple tooltip display on hover (requires HTML structure) */
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip); /* Display the attribute value */
+    position: absolute;
+    left: 0;
+    bottom: 100%; /* Position above the element */
+    margin-bottom: 5px;
+    background-color: #333;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap; /* Prevent wrapping */
+    z-index: 20;
+}
+
+
+/* --- Combinators --- */
+
+/* Descendant Combinator (element element)  (ul li) */
+/* Example: Style strong elements specifically inside paragraphs */
+p strong {
+  color: var(--primary-color);
+}
+
+/* Child Combinator (element > element)  (fieldset > label) */
+/* Example: Style direct child spans of a div with class 'status' */
+div.status > span {
+    border: 1px solid grey;
+    padding: 2px 5px;
+    margin-left: 5px;
+}
+
+/* Adjacent Sibling Combinator (element + element) */
+/* Style a paragraph that immediately follows an h3 heading */
+h3 + p {
+  font-style: italic;
+  color: #555;
+  margin-top: 0; /* Reduce space after h3 */
+}
+
+/* General Sibling Combinator (element ~ element) */
+/* Style all paragraphs that are siblings following an hr */
+hr ~ p {
+  text-indent: 2em; /* Indent paragraphs after a horizontal rule */
+}
+
+/* Combining Two Selectors (element.class) */
+/* Style list items that also have the class 'action-item' */
+li.action-item {
+  font-weight: bold;
+  border-left: 4px solid #e74c3c; /* Red border */
+  padding-left: 10px;
+  list-style: none; /* Remove default bullet if needed */
+}
+li.action-item::before {
+    content: "📌 "; /* Add a pin emoji */
+    margin-right: 5px;
+}
+
+
+/* --- New Selectors (2023+) --- */
+
+/* :has() Pseudo-class Selector */
+/* Style a section differently if it contains an image */
+section:has(img) {
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #ddd;
+}
+
+/* Style a form differently if it has a required input field */
+form:has(input:required) {
+    border-left: 5px solid orange;
+}
+
+/* Nested Selectors */
+/* Refactoring the fieldset styles using nesting */
+fieldset {
+  /* Apply Grid */
+  display: grid;
+  /* Grid properties */
+  grid-template-columns: 100px 1fr; /* Label column and input column */
+  gap: 10px 15px; /* Row gap and column gap */
+  align-items: center; /* Align items vertically */
+  border: 1px dotted var(--primary-color); /* Different border style */
+  padding: 1.5em; /* Relative unit: em */
+
+  /* Nested Child Combinator for label */
+  & > label {
+    text-align: right;
+    font-weight: bold;
+  }
+
+  /* Nested Child Combinator for button */
+  & > button {
+    grid-column: 2 / 3; /* Make button span the second column */
+    justify-self: start; /* Align button to the start of its grid area */
+  }
+
+  /* Nested rule for input fields within this fieldset */
+  & input[type="text"],
+  & input[type="email"],
+  & textarea {
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+  }
+}
+
+/* Another Nesting Example for UL/LI */
+ul {
+  list-style: square;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+
+  /* Nested rule for direct li children */
+  & > li {
+    background-color: #dee2e6;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    /* Nested pseudo-class */
+    &:hover {
+        background-color: #adb5bd; /* Darker grey on hover */
+    }
+
+    /* Nested combined selector (element.class) */
+    &.action-item {
+        font-weight: bold;
+        border-left: 4px solid #e74c3c; /* Red border */
+        padding-left: 10px;
+        list-style: none; /* Remove default bullet if needed */
+
+        &::before {
+            content: "📌 "; /* Add a pin emoji */
+            margin-right: 5px;
+        }
+    }
+  }
+}
+
 
 /* --- Responsiveness --- */
 
@@ -213,15 +428,16 @@ textarea {
   /* Adjust grid layout for form on small screens */
   fieldset {
     grid-template-columns: 1fr; /* Stack label and input */
-  }
 
-  fieldset > label {
-    text-align: left; /* Align labels to the left */
-  }
+    /* Nested rules adjusted for mobile */
+    & > label {
+      text-align: left; /* Align labels to the left */
+    }
 
-  fieldset > button {
-    grid-column: 1 / 2; /* Reset column span */
-    justify-self: stretch; /* Make button full width */
+    & > button {
+      grid-column: 1 / 2; /* Reset column span */
+      justify-self: stretch; /* Make button full width */
+    }
   }
 
   /* Adjust flexbox layout */
@@ -236,3 +452,4 @@ textarea {
     width: 95%; /* Adjust container width */
   }
 }
+
